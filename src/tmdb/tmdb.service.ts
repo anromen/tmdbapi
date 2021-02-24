@@ -12,4 +12,12 @@ export class TmdbService {
       throw new HttpException('get_movies_error', 400);
     }
   }
+
+  async getMovieCredits(id: string) {
+    try {
+      return await this.request.get(`movie/${id}/credits`).toPromise();
+    } catch (error) {
+      throw new HttpException('get_movies_error', 400);
+    }
+  }
 }
